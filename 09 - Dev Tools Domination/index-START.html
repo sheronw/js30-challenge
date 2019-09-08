@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello');
+
+    // Interpolated
+    console.log("This is a string %s.", 'ssssssss');
+
+    // Styled
+    console.log("%c This is a styled string.", 'font-size: 50px; background: red');
+
+    // warning!
+    console.warn("warn!!!");
+
+    // Error :|
+    console.error("error!!!");
+
+    // Info
+    console.info("information here");
+
+    // Testing
+    console.assert(1+1 > 3, '1+1>3');
+
+    // clearing
+    console.clear();
+
+    // Viewing DOM Elements
+    console.log(document.querySelector('p'));
+    console.dir(document.querySelector('p'));
+
+    // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}.`);
+      console.log(`${dog.name} is ${dog.age} years old.`);
+      console.groupEnd(`${dog.name}`);
+    })
+
+    // counting
+    console.count('biu');
+    console.count('biu');
+    console.count('biu');
+    console.count('biu');
+    console.count('biu');
+    console.count('biu');
+
+    // timing
+    console.time('fetching data');
+    fetch('https://raw.githubusercontent.com/soyaine/JavaScript30/master/09%20-%20Dev%20Tools%20Domination/README.md')
+      .then(data => data.text())
+      .then(text => console.log(text));
+    console.timeEnd('fetching data');
+
+  </script>
+</body>
+</html>
